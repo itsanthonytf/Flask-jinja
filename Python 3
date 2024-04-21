@@ -1,0 +1,25 @@
+# Homepage with a drop-down menu of story templates
+def homepage():
+    templates = ["Template 1", "Template 2", "Template 3"]
+    selected_template = input("Select a template: ")
+    if selected_template in templates:
+        story_questions_page(selected_template)
+    else:
+        print("Invalid template selected.")
+
+# Page prompting for list of story questions
+def story_questions_page(template):
+    print(f"Answer the questions for {template}:")
+    # Logic to prompt for and store story questions
+
+# Page showing the generated story
+def generated_story_page(story):
+    print("Generated Story:")
+    print(story)
+
+# Main function to run the program
+def main():
+    homepage()
+
+if __name__ == "__main__":
+    main()
