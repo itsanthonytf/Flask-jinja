@@ -1,0 +1,14 @@
+# Code to Generate
+@app.route('/create_madlib', methods=['GET', 'POST'])
+def create_madlib():
+    if request.method == 'POST':
+        parts_of_speech = request.form.getlist('parts_of_speech')
+        story_text = request.form['story_text']
+        
+        new_story = Story(parts_of_speech=parts_of_speech, story_text=story_text)
+        db.session.add(new_story)
+        db.session.commit()
+        
+        return redirect(url_for('select_story'))
+    
+    return render_template('create_madlib.html')
