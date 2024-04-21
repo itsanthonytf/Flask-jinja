@@ -1,0 +1,21 @@
+const form = document.querySelector('form');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const inputs = form.querySelectorAll('input[type="text"]');
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (input.value.length < 3 || input.value.toLowerCase() !== input.value) {
+            isValid = false;
+        }
+    });
+
+    if (isValid) {
+        // Form submission logic here
+        console.log('Form submitted successfully!');
+    } else {
+        alert('Please make sure all answers are at least 3 characters long and in lowercase.');
+    }
+});
